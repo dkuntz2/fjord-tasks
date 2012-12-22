@@ -27,7 +27,7 @@ call(["mynt", "gen", "-f", "./", "_site"])
 # rsync the site
 call([
     "rsync",
-    "-rupazv",
+    "-rupaz",
     "_site/",
     "dkuntzco@dkuntz2.com:~/sites/dkuntz2.com"
 ])
