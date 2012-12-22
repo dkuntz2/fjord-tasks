@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+
+from subprocess import call
+from sys import argv
+from datetime import datetime
+
+now = datetime.now()
+
+
+# set the message
+gitmessage = now.strftime("[%d %b %Y %H:%M] ")
+gitmessage += argv[1] if len(argv) > 1 else "Generic Update"
+
+print(gitmessage)
+
+# make sure there are no remote changes
+call(["git", "pull"])
+
+# update the git repo
+call(["git", "add", "."])
+call(["git", "commit", "-m", gitmessage])
+call(["git", "push"])
+
+# update the site
+call(["mynt", "gen", "-f", "./", "_site"])
+
+# rsync the site
+call([
+    "rsync",
+    "-rupazv",
+    "_site/",
+    "dkuntzco@dkuntz2.com:~/sites/dkuntz2.com"
+])
+
