@@ -4,8 +4,8 @@ from datetime import datetime
 from subprocess import call
 from os import path, makedirs, chdir
 from shutil import move
-
 from sys import argv
+from subprocess import call
 
 # if there isn't a draft argument
 if len(argv) != 2:
@@ -26,6 +26,7 @@ if path.isfile(draft):
     pub += draft[len("_drafts/"):]
 
     move(draft, pub)
+    call(["git", "mv", draft, pub])
 
 else:
     print(str(draft) + "could not be found")
