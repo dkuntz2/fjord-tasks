@@ -8,7 +8,7 @@ now = datetime.now()
 
 
 # set the message
-gitmessage = now.strftime("[%d %b %Y %H:%M] ")
+gitmessage = now.strftime("[%d/%m/%Y %H:%M] ")
 gitmessage += argv[1] if len(argv) > 1 else "Generic Update"
 
 print(gitmessage)
