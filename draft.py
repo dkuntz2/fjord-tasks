@@ -14,7 +14,7 @@ dirn = "_drafts/"
 if not os.path.exists(dirn):
     os.makedirs(dirn)
 
-filename = dirn + re.sub(r'\W+', '-', title.lower() + ".md")
+filename = dirn + re.sub(r'\W+', '-', title.lower()) + ".md"
 
 filecont =  "---\ntitle: \"" + title + "\""
 filecont += "\nlayout: post.html"
