@@ -38,7 +38,7 @@ class MyntWatcher(Thread):
         Thread.__init__(self)
 
     def run(self):
-        call(["mynt", "watch", "-f", "--base-url=http://127.0.0.1:8000/", "./", "_site"])
+        call(["fjord", "watch", "-f", "--base-url=http://127.0.0.1:8000/", "./", "_site"])
 
 
 try:

@@ -16,7 +16,7 @@ if not os.path.exists(dirn):
 
 filename = dirn + re.sub(r'\W+', '-', title.lower()) + ".md"
 
-filecont =  "---\ntitle: \"" + title + "\""
+filecont =  "---\ntitle: " + title
 filecont += "\nlayout: post.html"
 filecont += "\ntags: []\n---\n\n"
 

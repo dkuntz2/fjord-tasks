@@ -22,7 +22,7 @@ call(["git", "commit", "-m", gitmessage])
 call(["git", "push"])
 
 # update the site
-call(["mynt", "gen", "-f", "./", "_site"])
+call(["fjord", "gen", "-f", "./", "_site"])
 
 # rsync the site
 call([
