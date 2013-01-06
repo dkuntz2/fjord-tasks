@@ -29,6 +29,6 @@ call([
     "rsync",
     "-rupaz",
     "_site/",
-    "dkuntzco@dkuntz2.com:~/sites/dkuntz2.com"
+    "don@kuntz.co:~/sites/kuntz.co"
 ])
 

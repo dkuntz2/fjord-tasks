@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from subprocess import call
-from os import chdir
+from os import chdir, getcwd
 from threading import Thread
 from http.server import SimpleHTTPRequestHandler
 from socketserver import TCPServer
@@ -15,7 +15,7 @@ class CompileSCSS(Thread):
         call([
             "sass",
             "--watch",
-            "_assets/_scss:_assets/css"
+            root + "/_assets/_scss:" + root + "/_assets/css"
         ])
 
 
@@ -25,7 +25,7 @@ class SimpleServer(Thread):
         self.httpd = None
 
     def run(self):
-        chdir("_site")
+        chdir(root + "/_site")
         self.httpd = TCPServer(('', 8000), SimpleHTTPRequestHandler)
         self.httpd.serve_forever()
 
@@ -38,10 +38,15 @@ class MyntWatcher(Thread):
         Thread.__init__(self)
 
     def run(self):
+        chdir(root)
         call(["fjord", "watch", "-f", "--base-url=http://127.0.0.1:8000/", "./", "_site"])
 
 
 try:
+    root = getcwd()
+
+    #print(root)
+    
     threads = []
 
     scss = CompileSCSS()
@@ -55,6 +60,7 @@ try:
     serv = SimpleServer()
     threads.append(serv)
     serv.start()
+     
 
     while True:
         pass
