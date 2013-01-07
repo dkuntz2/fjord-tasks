@@ -2,7 +2,6 @@
 
 import os
 import re
-#from exceptions import Exception
 from sys import argv
 
 if len(argv) != 2:
