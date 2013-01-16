@@ -16,7 +16,7 @@ print(gitmessage)
 # make sure there are no remote changes
 call(["git", "pull"])
 
-# sass update
+# generate the css
 call(["sass", "--update", "_assets/_scss:_assets/css"])
 
 # update the git repo

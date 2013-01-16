@@ -39,7 +39,7 @@ class MyntWatcher(Thread):
 
     def run(self):
         chdir(root)
-        call(["fjord", "watch", "-f", "--base-url=http://127.0.0.1:8000/", "./", "_site"])
+        call(["fjord", "watch", "-f", "--base-url=http://127.0.0.1:8000/", root, root + "/_site"])
 
 
 try:
