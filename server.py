@@ -46,7 +46,6 @@ try:
     root = getcwd()
 
     #print(root)
-    
     threads = []
 
     scss = CompileSCSS()
@@ -60,7 +59,6 @@ try:
     serv = SimpleServer()
     threads.append(serv)
     serv.start()
-     
 
     while True:
         pass
