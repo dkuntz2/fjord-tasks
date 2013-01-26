@@ -68,3 +68,6 @@ except(KeyboardInterrupt, SystemExit):
     for t in threads:
         t.kill_received = True
     serv.shutdown()
+
+serv.shutdown()
+print("server shutdown?")
